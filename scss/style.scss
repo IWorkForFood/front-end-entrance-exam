@@ -1,0 +1,718 @@
+//<Переменные>
+
+//<Переменные>
+
+//<Обнуление>
+@import "Null.scss";
+//<Обнуление>
+
+//<подключаем шрифты>
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+//<подключаем шрифты>
+
+//<UI>
+@import "ibg.scss";
+//<UI>
+
+//<шрифт по умолчанию>
+$fontfamily:"Poppins";
+*{
+    font-family: $fontfamily;
+}
+//<шрифт по умолчанию>
+
+//<Основная сетка>
+html.lock, body.lock{
+    overflow: hidden !important; 
+}
+//<Основная сетка>
+
+//<Подключение фалов стилей страниц и элементов>
+
+//<Подключение фалов стилей страниц и элементов>
+
+//<Основной блок>
+.page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.content{
+    padding: 0.840336vw 1.680672vw; // 5px и 10px при 595px (5/595*100 = 0.840336vw, 10/595*100 = 1.680672vw)
+    width: 100%;
+    height: 100%;
+}
+
+.gray-block{
+    background-color: #F0F0F0;
+    border-radius: 2.689076vw; // 16px (16/595*100 = 2.689076vw)
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.dark-block{
+    background-color: #000;
+    border-radius: 2.689076vw; // 16px (16/595*100 = 2.689076vw)
+    color: #fff;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.introduction {
+    height: auto;
+    
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+
+        .introduction__column {
+            flex: 1 1 25%;
+            padding: 1.680672vw; // 10px
+
+            &_m{
+                flex: 1 1 50%;
+                padding: 1.680672vw; // 10px
+                
+            }
+
+            &_b{
+                flex: 1 1 75%;
+                padding: 1.680672vw; // 10px
+            }
+        }
+
+        @media(max-width: 594px){
+            .introduction__column {
+                flex: 1 1 50%;
+                &_m{
+                    flex: 1 1 100%; 
+                }
+            }
+        }
+
+        .introduction__photo {
+            padding: 0 0 100% 0;
+            border-radius: 2.689076vw; // 16px (16/595*100 = 2.689076vw)
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .languages-block {
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            padding: 0.857em 0.857em 1.571em 0.857em; // 12px, 12px, 22px, 12px
+            font-size: 2.352941vw; // 14px при ширине 595px (14/595*100 = 2.352941vw)
+            display: flex;
+
+            &__title {
+                flex: 0 0 0.714em; // 10px
+                font-weight: 500;
+                font-style: medium;
+                font-size: 1em; // 10px (10/14 = 0.714)
+                line-height: 150%;
+                letter-spacing: 0%;
+                vertical-align: middle;
+                margin: 0 0 0 0; // 0, 0, 16px, 0 (16/14 = 1.143)
+            }
+            
+            .languages-block__lang {
+                display: flex;
+                flex: 1 1 auto;
+
+                .languages-block__lang-names {
+                    padding: 0 0.607em 0 0; // 0 8.5px 0 0 (8.5/14 = 0.607)
+                    display: flex; 
+                    flex-direction: column;
+                    justify-content: space-around; 
+                    
+                    .languages-block__lang-name {
+                        font-weight: 500;
+                        font-style: medium;
+                        font-size: 0.714em; //10px (10/14 = 0.714)
+                        letter-spacing: 0%;
+                        vertical-align: middle;
+                        flex: 0 0 auto;
+                        margin: 0;
+                    }
+                }
+                
+                .languages-block__lang-metric {
+                    flex: 1 1 50%;
+                    padding: 0 0 0 0.607em; // 0 0 0 8.5px (8.5/14 = 0.607)
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                }
+                
+                .languages-block__filling {
+                    .slider {
+                        width: 100%;
+                        height: 1.84vw; // 13.2px ≈ 13px (13.2/14 = 0.943)
+                        appearance: none;
+                        background-color: #F0F0F0;
+                        border-radius: 0.214em; // 3px (3/14 = 0.214)
+                        overflow: hidden;
+                        margin: 0.4% 0 0.4% 0;
+                        
+                        &::-webkit-slider-thumb {
+                            width: 1.786em; // 25px (25/14 = 1.786)
+                            height: 1.84vw; 
+                            border-radius: 0.214em; // 3px
+                            background: #28D979;
+                            box-shadow: -615px 0 0 600px #28D979;
+                            appearance: none;
+                            border: 0;
+                        }
+                        
+                        &::-moz-slider-thumb {
+                            width: 1.786em; // 25px
+                            height: 1.84vw;
+                            border-radius: 0.214em; // 3px
+                            appearance: none;
+                            background: #28D979;
+                            box-shadow: -615px 0 0 600px #28D979;
+                            border: 0;
+                        }
+
+                        @media(max-width: 594px){
+                            height: 4vw;
+
+                            &::-webkit-slider-thumb {
+                                height: 4vw;
+                            }
+                            &::-moz-slider-thumb {
+                                height: 4vw;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            @media(max-width: 594px){
+                font-size: 7vw; // 23px при ширине 594px (23/594*100 = 3.888vw)
+            }
+        }
+
+        h2 {
+        }
+        
+        .greeting-block {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.2em 1.2em 1.2em 1.2em;
+            
+            /* Базовый font-size для всех расчетов */
+            font-size: 1.680672vw; /* 10px при 595px (10/595*100 = 1.680672vw) */
+            
+            &__hello {
+                font-weight: 500;
+                font-style: medium;
+                font-size: 1em; /* 10px / 10px = 1 */
+                line-height: 1.5; /* 150% = 1.5 */
+                letter-spacing: 0%;
+                vertical-align: middle;
+            }
+
+            &__initials {
+                font-weight: 600;
+                font-style: medium;
+                font-size: 1.369em; /* 23px / 10px = 2.3 (исправлено) */
+                line-height: 1.04; /* 104% = 1.04 */
+                letter-spacing: 0%;
+                vertical-align: middle;
+                margin: 0 0 0.595em 0; /* 10px / 10px = 1 (исправлено) */
+            }
+
+            .greeting-block__job {
+                font-weight: 600;
+                font-style: medium;
+                font-size: 1.2em; /* 12px / 10px = 1.2 (исправлено) */
+                line-height: 1.5; /* 150% = 1.5 */
+                letter-spacing: 0%;
+                vertical-align: middle;
+                color: #5C5C5C;
+            }
+            @media(max-width: 594px){
+                font-size: 3.888vw; // 23px при 594px
+            }
+        }
+    }
+}
+
+
+
+
+
+.professional-information {
+    .row {
+        &__column{
+        }
+
+        .jobs-list {
+            font-size: 2.353vw; // Базовый размер - 14px при 595px ширине
+            
+            padding: 0.857em 0.857em 0.857em 0.857em; // 12px = 0.857em при font-size: 14px
+
+            &__job-info {
+                padding: 0.571em 0.571em 0.571em 0.571em; // 8px = 0.571em
+                background-color: #fff;
+                border-radius: 0.714em; // 10px = 0.714em
+                position: relative;
+                margin: 0em 0em 0.714em 0em; // 0px 0px 10px 0px (10px = 0.714em)
+
+                &.most-recent{
+                    background-color: #28D979;
+                    color: #fff;
+
+                    .jobs-firm {
+                        color: #fff;
+                    }
+
+                    &:after{
+                        content: 'most recent';
+                        position: absolute;
+                        top: 0.571em; // 8px = 0.571em
+                        right: 0.571em; // 8px = 0.571em
+                        color: #DDF163;
+                        display: block;
+                        padding: 0.143em 0.429em; // 2px 6px (2px = 0.143em, 6px = 0.429em)
+                        background-color: #7E731266;
+                        border-radius: 4.214em; // 59px = 4.214em
+                        font-size: 0.571em; // 8px = 0.571em
+                        font-weight: 500;
+                        font-style: normal;
+                        line-height: 1.55;
+                        letter-spacing: 0;
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+                }
+
+                &:last-child{
+                    margin: 0em 0em 0em 0em;
+                }
+
+                .jobs-list__row {
+                    display: flex;
+
+                    .jobs-list__position {
+                        font-weight: 500;
+                        font-style: normal;
+                        font-size: 0.714em; // 10px = 0.714em
+                        line-height: 1.5;
+                        letter-spacing: 0;
+                        vertical-align: middle;
+                        flex: 0 0 14.286em; // 130px = 9.286em
+                        
+                        
+                    }
+                    .jobs-list__description {
+                        flex: 1 1 auto;
+                        font-weight: 400;
+                        font-style: normal;
+                        font-size: 0.571em; // 8px = 0.571em
+                        line-height: 1.5;
+                        letter-spacing: 0;
+                        vertical-align: middle;
+                    }
+                    .jobs-list__period {
+                        font-weight: 500;
+                        font-style: normal;
+                        font-size: 0.571em; // 8px = 0.571em
+                        line-height: 1.5;
+                        letter-spacing: 0;
+                        vertical-align: middle;
+                        margin: 0 0 0.571em 0; // 8px = 0.571em
+                    }
+                    .jobs-list__name {
+                        
+                    }
+                    .jobs-firm {
+                        font-weight: 400;
+                        font-style: normal;
+                        font-size: 0.8em; // 8px = 0.571em
+                        line-height: 1.5;
+                        letter-spacing: 0;
+                        vertical-align: middle;
+                        color: #3F3D3D;
+                        
+                    }
+                    .jobs-list__list-points {
+                        .jobs-list__point {
+                            font-weight: 300;
+                            font-style: thin;
+                            line-height: 1.5;
+                            letter-spacing: 0;
+                            vertical-align: middle;
+                            list-style-type: disc;
+                        }
+                    }
+                }
+            }
+
+            @media(max-width: 594px){
+                font-size: 7vw; // 23px при ширине 594px (23/594*100 = 3.888vw)
+
+                &__job-info {
+                    .jobs-list__row {
+                        flex-direction: column;
+
+                        .jobs-list__position {
+                            flex: 1 1 auto; // Или flex: none;
+                        }
+                        
+                        .jobs-list__description {
+                            padding: 1em 1em;
+                            flex: 1 1 auto; // Убедитесь, что это тоже адаптивно
+                        }
+                    }
+                }
+            }
+        }
+
+        .tools {
+            font-size: 2.353vw; // Базовый размер - 14px при 595px ширине
+            
+            padding: 0.857em 0.857em 0em 0.857em; // 12px = 0.857em
+
+            .tools__row{
+                display: flex;
+                flex-direction: column;
+                padding: 0 0.857em; // 12px = 0.857em
+                margin: -0.429em 0; // -6px = -0.429em
+                
+                .tools__column{
+                    display: flex;
+                    padding: 0.429em 0; // 6px = 0.429em
+                    flex: 1 1 100%;
+
+                    &:last-child{
+                        padding: 0.429em 0 0 0; // 6px = 0.429em
+                    }
+                }
+            }
+            
+            .stack-block {
+                display: flex;
+                flex-wrap: wrap;
+                background-color: #fff;
+                flex: 1 1 100%;
+                position: relative;
+                border-radius: 0.429em; // 6px = 0.429em
+                padding: 0.45em 0.2em 0.40em 0.2em;
+
+                
+
+                &__element {
+                    flex: 0 1 50%;
+                    padding: 0 0 48% 0;
+                    position: relative;
+
+                    .stack-block__icon{
+                        position: absolute;
+                        bottom: 50%;
+                        right: 50%;
+                        height: 50.47%;
+                        transform: translate(50%, 50%);
+                    }
+                }
+
+                .stack-block__mark{
+                    position: absolute;
+                    background-color: #000000;
+                    padding: 0.4em 1.2em; // 2px 6px (2px = 0.143em, 6px = 0.429em)
+                    top: -1em; // -5px = -0.357em
+                    display: block;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-weight: 500;
+                    font-style: normal;
+                    font-size: 0.357em; // 5px = 0.357em
+                    line-height: 1.42;
+                    letter-spacing: 0;
+                    text-align: center;
+                    vertical-align: middle;
+                    color: #fff;
+                    border-radius: 4.214em; // 59px = 4.214em
+                }
+
+                @media(max-width: 594px){
+                    flex-wrap:wrap;
+                    margin: 0 0 6% 0;
+                    &__element {
+                        flex: 0 1 33%;
+                        padding: 0 0 30% 0;
+                    }
+                }
+            }
+            @media(max-width: 594px){
+                font-size: 7vw;
+            }
+        }
+
+        @media(max-width: 594px){
+            display: flex;
+            flex-wrap: wrap;
+            .professional-information__column {
+                flex: 1 1 100%;
+            }
+
+        }
+    }
+}
+
+
+
+.about-yourself {
+
+    &__final{
+        display: flex;
+    }
+
+    .final-about{
+        &__row{
+            margin: -1.680672vw;
+            display: flex;
+            flex-direction: column;
+        }
+        &__column{
+            padding: 1.680672vw;
+        }
+
+        &__proposal {
+            font-size: 2.353vw; // Базовый размер - 14px при 595px ширине   
+            padding: 0.857em 0.857em 0.857em 0.857em; // 12px = 0.857em при font-size: 14px
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%;
+
+            .final-about__email{
+                font-size: 0.714em;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+
+
+            }
+
+            .final-about__come-on{
+                margin: 0 0 0.7em 0;
+                font-size: 1em;
+            }
+            @media(max-width: 594px){
+                font-size: 3.888vw; // 23px при 594px
+            }
+
+        }
+        
+        @media(max-width: 594px){
+            font-size: 3.888vw; // 23px при 594px
+        }
+    }
+
+    &__column{
+        display: flex;
+        //flex-direction: column;
+    }
+
+    .about-yourself__interests.interests-block {
+        font-size: 2.353vw; // Базовый размер - 14px при 595px ширине   
+        padding: 0.857em 0.857em 0.857em 0.857em; // 12px = 0.857em при font-size: 14px
+
+
+        
+        .interests-block__hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -0.2855em;
+            .interests-block__hobby-block{
+                padding: 0.2855em;
+                .interests-block__separated-hobby {
+                    padding: 0.428em 1.05em;
+                    background-color: #fff;
+                    border-radius: 6.723em;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 0.714em;
+                    line-height: 150%;
+                    display: inline-block;
+
+                }
+
+            }
+            
+        }
+
+        @media(max-width: 594px){
+            font-size: 6vw; // 23px при 594px
+        }
+    }
+    
+    .education-block {
+
+        font-size: 2.353vw; // Базовый размер - 14px при 595px ширине    
+        padding: 0.857em 0.857em 0.857em 0.857em; // 12px = 0.857em при font-size: 14px
+
+        &__row{
+            display: flex;
+           flex-wrap:wrap;
+           margin: -0.571em;    
+        }
+
+        &__column{
+            flex: 0 1 50%;
+            padding: 0.571em;    
+            
+        }
+
+        .education-block__years {
+
+            font-style: normal;
+            font-weight: 500;
+            font-size: 0.714em;
+            line-height: 150%;
+
+        }
+        .education-block__about {
+
+            padding: 0.571em 0;
+            .education-block__name {
+
+                font-style: normal;
+                font-weight: 500;
+                line-height: 150%;
+                font-size: 0.714em;
+            }
+            .education-block__hashtag {
+                /* tags */
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.5;
+                color: #149063;
+                font-size: 0.571em;
+                
+
+            }
+        }
+        &__separated{
+            background-color: #fff;
+            padding: 0.571em;        
+            border-radius: 0.714em;
+
+                &.favourite{
+                    background-color: #28D979;
+                    color: #fff;
+
+                    .education-block__about {
+
+                        .education-block__hashtag {
+                            color: #fff;
+                            
+                        }
+                    }
+                    .education-block__years{
+                        position: relative;
+                            &:after{
+                                content: '';
+                                position: absolute;
+                                top: 18%; // 8px = 0.571em
+                                right: 0; // 8px = 0.571em
+                                background: url('/public/heart.svg') center/cover no-repeat;
+                                
+                                height: 0.902em;
+                                width: 1.057em;
+                                color: #DDF163;
+                                display: block;
+                                padding: 0.143em 0.429em; // 2px 6px (2px = 0.143em, 6px = 0.429em)
+
+                            }
+                    }
+
+                    
+                }
+        }
+
+        .education-block__place{
+            font-size: 0.571em;
+
+        }
+
+        @media(max-width: 594px){
+            font-size: 7vw; // 23px при 594px
+            .education-block{
+                &__column{
+                    flex: 0 1 100%;
+                }
+            }
+        }
+    }
+    @media(max-width: 594px){
+        &__row{
+            flex-direction: column;
+        }
+    }
+
+}
+
+
+.title{
+    font-size: 2.352941vw;
+    flex: 0 0 0.714em; // 10px
+    font-weight: 500;
+    font-style: medium;
+    font-size: 1em; // 10px (10/14 = 0.714)
+    line-height: 150%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    margin: 0 0 1.143em 0; // 0, 0, 16px, 0 (16/14 = 1.143)
+}
+
+
+
+.row{
+    display: flex;
+    //flex-wrap: wrap;
+
+    &__column{
+
+        flex: 1 1 25%;
+        padding: 1.680672vw; // 10px
+
+        &_m{
+            flex: 1 1 50%;
+            padding: 1.680672vw; // 10px
+            
+        }
+
+        &_b{
+            flex: 1 1 75%;
+            padding: 1.680672vw; // 10px
+        }
+    }
+}
+
+//<Основной блок>
+
+//<Оболочка>
+.wrapper{
+    overflow: hidden;
+    min-height: 100%;
+    background-color: #fff;
+}
+//<Оболочка>
